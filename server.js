@@ -37,11 +37,11 @@ app.use((req, res, next)=>{
     });
         next();
 });
-//middleware
-app.use((req,res,next)=>{
-    res.render('maintance.hbs');
-    next();
-})
+// middleware
+// app.use((req,res,next)=>{
+//     res.render('maintance.hbs');
+//     next();
+// })
 
 app.get('/', (req, res )=>{
     // res.send('<h1>hihihihi</h1>')
