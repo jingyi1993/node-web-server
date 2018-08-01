@@ -18,13 +18,15 @@ hbs.registerHelper('getCurrentYear', ()=>{
 hbs.registerHelper('screamIt', (text)=>{
     return text.toUpperCase();
 
-})
+});
 
 app.set('view engine:','hbs');
 
 app.use(express.static(__dirname + '/public'));
 // console.log(__dirname);
 //middleware
+
+
 app.use((req, res, next)=>{
     var now = new Date().toString();
     // console.log(`${now}:${req.method},${req.url}`);
@@ -41,7 +43,7 @@ app.use((req, res, next)=>{
 // app.use((req,res,next)=>{
 //     res.render('maintance.hbs');
 //     next();
-// })
+// });
 
 app.get('/', (req, res )=>{
     // res.send('<h1>hihihihi</h1>')
@@ -62,11 +64,20 @@ app.get('/about', (req,res)=>{
     });
 });
 
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle:'Projects',
+    })
+});
+
 app.get('/bad', (req,res)=>{
     res.send({
         errorMessasge: 'unable to handler request',
     })
-})
+});
+
+
+
 
 app.listen(port,()=>{
     console.log(`server is on port ${port}`)
